@@ -32,9 +32,9 @@ import app.core.repositories.CustomerRepository;
 public class CompanyService extends ClientService {
 
 	private int companyId;
-	@Value("${file.upload-dir}")
-	private String storageDir;
-	private Path fileStoragePath;
+//	@Value("${file.upload-dir}")
+//	private String storageDir;
+//	private Path fileStoragePath;
 
 	@Autowired
 	public CompanyService(CompanyRepository compRepo, CustomerRepository custRepo, CouponRepository coupRepo) {
@@ -49,18 +49,18 @@ public class CompanyService extends ClientService {
 		this.companyId = companyId;
 	}
 
-	@PostConstruct
-	public void init() {
-		this.fileStoragePath = Paths.get(this.storageDir).toAbsolutePath();
-		System.out.println(this.fileStoragePath);
-		try {
-			// create the directory
-			Files.createDirectories(fileStoragePath);
-		} catch (IOException e) {
-			throw new RuntimeException("Could not create directory", e);
-		}
-
-	}
+//	@PostConstruct
+//	public void init() {
+//		this.fileStoragePath = Paths.get(this.storageDir).toAbsolutePath();
+//		System.out.println(this.fileStoragePath);
+//		try {
+//			// create the directory
+//			Files.createDirectories(fileStoragePath);
+//		} catch (IOException e) {
+//			throw new RuntimeException("Could not create directory", e);
+//		}
+//
+//	}
 
 	@Override
 	public boolean login(String email, String password) {

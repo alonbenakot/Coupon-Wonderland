@@ -31,6 +31,8 @@ public class Coupon {
 	private String description;
 	private LocalDate startDate;
 	private LocalDate endDate;
+	private String stringEndDate;
+	private String stringStartDate;
 	private int amount;
 	private double price;
 	private String imageName;
@@ -84,6 +86,11 @@ public class Coupon {
 		this.imageName = image;
 		this.company = company;
 	}
+	
+	public void convertDatesFromStringToLocalDate() {
+		setStartDate(LocalDate.parse(stringStartDate));
+		setEndDate(LocalDate.parse(stringEndDate));
+	}
 
 	public List<Customer> getCustomers() {
 		return customers;
@@ -105,6 +112,21 @@ public class Coupon {
 		this.id = id;
 	}
 
+	public String getStringEndDate() {
+		return stringEndDate;
+	}
+	
+	public void setStringEndDate(String stringEndDate) {
+		this.stringEndDate = stringEndDate;
+	}
+	
+	public String getStringStartDate() {
+		return stringStartDate;
+	}
+	
+	public void setStringStartDate(String stringStartDate) {
+		this.stringStartDate = stringStartDate;
+	}
 	public void setCategory(Category category) {
 		this.category = category;
 	}

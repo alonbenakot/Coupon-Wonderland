@@ -23,7 +23,6 @@ import org.springframework.web.server.ResponseStatusException;
 import app.core.entities.Category;
 import app.core.entities.Company;
 import app.core.entities.Coupon;
-import app.core.entities.CouponImage;
 import app.core.exceptions.CouponSystemException;
 import app.core.services.CompanyService;
 import app.core.services.CustomerService;
@@ -53,10 +52,10 @@ public class CompanyController {
 //	}
 	
 	@PostMapping("/add-coupon")
-	public Coupon addCoupon(@ModelAttribute CouponImage couponImage, BindingResult result, @RequestHeader String token) {
+	public Coupon addCoupon(@ModelAttribute Coupon coupon, BindingResult result , @RequestHeader String token) {
 		try {
 			if (recieveToken(token)) {
-				return service.addCoupon(couponImage);
+				return service.addCoupon(coupon);
 			}
 			throw new Exception("token not validated!");
 		} catch (Exception e) {
@@ -137,10 +136,10 @@ public class CompanyController {
 	}
 	
 	@PutMapping("/update/coupon")
-	public Coupon updateCoupon(@ModelAttribute CouponImage couponImage, BindingResult result, @RequestHeader String token) {
+	public Coupon updateCoupon(@ModelAttribute Coupon coupon, BindingResult result , @RequestHeader String token) {
 		try {
 			if (recieveToken(token)) {
-				return service.updateCoupon(couponImage);
+				return service.updateCoupon(coupon);
 			}
 			throw new Exception("token not validated!");
 		} catch (Exception e) {

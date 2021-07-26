@@ -76,10 +76,8 @@ public class CompanyService extends ClientService {
 
 	public Coupon addCoupon(Coupon coupon) throws CouponSystemException {
 		try {
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>trying to add coupon");
 			System.out.println(coupon);
 			validateCoupon(coupon);
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> coupon validated");
 //			Coupon coupon = convertCouponImage(couponImage);
 			if (coupRepo.findByTitleAndCompanyId(coupon.getTitle(), companyId) == null) {
 				Optional<Company> opt = compRepo.findById(companyId);
@@ -253,6 +251,8 @@ public class CompanyService extends ClientService {
 		}
 		LocalDate start = coupon.getStartDate();
 		if (end.isBefore(start)) {
+			System.out.println(end);
+			System.out.println(start);
 			throw new CouponSystemException("End Date cannot be before the Start Date");
 		}
 

@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,7 +32,9 @@ public class Coupon {
 	private String description;
 	private LocalDate startDate;
 	private LocalDate endDate;
+	@Transient
 	private String stringEndDate;
+	@Transient
 	private String stringStartDate;
 	private int amount;
 	private double price;

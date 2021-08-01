@@ -22,7 +22,7 @@ import app.core.services.GuestService;
 
 @RestController
 @RequestMapping("/guest")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class GuestController {
 
 	private GuestService service;
